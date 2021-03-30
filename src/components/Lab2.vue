@@ -4,7 +4,11 @@
       <div class="row">
         <div class="col-12">
           <div class="mb-3">
-            <h1 class="text-center mb-4">{{ ruangan }}</h1>
+            <h1 class="text-center mb-4">{{ ruangan }}
+              /
+              <span class="text-muted" v-if="timesup">Berkahir</span>
+              <span v-else>Berlangsung</span>
+            </h1>
             <h2 class="text-muted">{{ hari }}, {{ bulan }} / {{ pukul }} WIB</h2>
           </div>
         </div>
@@ -75,7 +79,7 @@ export default {
     };
   },
   mounted() {
-    let url = "http://10.6.255.22:8000/api/lab2/";
+    let url = "http://192.168.10.251/api/lab2/";
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -100,7 +104,13 @@ export default {
       this.hari = day;
       this.bulan = date;
       this.pukul = time
-      console.log(today.getHours())
+      
+      // BATAS WAKTU
+      if (today.getHours() < 17) {
+        this.timesup = false;
+      } else {
+        this.timesup = true;
+      }
     },
   },
 };
