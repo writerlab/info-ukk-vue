@@ -6,7 +6,7 @@
           <div class="mb-3">
             <h1 class="text-center mb-4">{{ ruangan }}
               /
-              <span class="text-muted" v-if="timesup">Berakhir</span>
+              <span class="text-danger" v-if="timesup">Berakhir</span>
               <span v-else>Berlangsung</span>
             </h1>
             <h2 class="text-muted">{{ hari }}, {{ bulan }} / {{ pukul }} WIB</h2>
