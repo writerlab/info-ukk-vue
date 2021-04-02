@@ -28,6 +28,12 @@
 
 export default {
   name: 'App',
+  mounted() {
+    console.log("💚💚💚")
+    console.log("👋🏻Hay! Selamat Datang di Info Peserta UKK 2021. 🎉")
+    console.log("💚💚💚")
+    console.log("Developed by Zul Hilmi.")
+  }
   // components: {
   //   Lab1
   // }
